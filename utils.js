@@ -19,6 +19,7 @@ const insertValue = (value, node) => {
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
+    console.log("Tree is empty");
     return;
   }
   if (node.right !== null) {
