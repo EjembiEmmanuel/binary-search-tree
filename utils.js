@@ -1,21 +1,20 @@
 import Node from "./Node.js";
 
-const buildTree = (array) => {
-  array = array.sort();
-
-  var start = 0;
-  var end = array.length - 1;
-
-  if (start > end) {
-    return null;
+const insertValue = (value, node) => {
+  if (node.left === null && node.right === null) {
+    if (node.data < value) {
+      node.right = new Node(value);
+    } else {
+      node.left = new Node(value);
+    }
+    return node;
   }
 
-  var mid = Math.floor((start + end) / 2);
-  var node = new Node(array[mid]);
-  node.left = buildTree(array.slice(start, mid));
-  node.right = buildTree(array.slice(mid + 1));
-
-  return node;
+  if (node.data < value) {
+    return insertValue(value, node.right);
+  } else {
+    return insertValue(value, node.left);
+  }
 };
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -31,6 +30,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-prettyPrint(buildTree([3, 5, 1, 4, 2, 6, 7, 9]));
-
-export { buildTree };
+export { prettyPrint, insertValue };
