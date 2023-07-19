@@ -11,8 +11,18 @@ const insertValue = (value, node) => {
   }
 
   if (node.data < value) {
+    if (node.right === null) {
+      node.right = new Node(value);
+      return;
+    }
+
     return insertValue(value, node.right);
   } else {
+    if (node.left === null) {
+      node.left = new Node(value);
+      return;
+    }
+
     return insertValue(value, node.left);
   }
 };

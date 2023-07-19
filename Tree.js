@@ -3,7 +3,7 @@ import { insertValue } from "./utils.js";
 
 export default class Tree {
   constructor(array) {
-    this.root = this.buildTree(array);
+    this.root = this.buildTree(array) || null;
   }
 
   buildTree(arr) {
@@ -25,6 +25,11 @@ export default class Tree {
   }
 
   insert(value) {
+    if (this.root === null) {
+      this.root = new Node(value);
+      return;
+    }
+
     insertValue(value, this.root);
   }
 }
