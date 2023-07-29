@@ -1,5 +1,5 @@
 import Node from "./Node.js";
-import { insertValue } from "./utils.js";
+import { insertValue, deleteValue } from "./utils.js";
 
 export default class Tree {
   constructor(array) {
@@ -31,5 +31,13 @@ export default class Tree {
     }
 
     insertValue(value, this.root);
+  }
+
+  delete(value) {
+    if (this.root === null) {
+      return this.root;
+    }
+
+    deleteValue(value, this.root);
   }
 }

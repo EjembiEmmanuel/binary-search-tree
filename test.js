@@ -1,9 +1,20 @@
 import Tree from "./Tree.js";
 import { prettyPrint } from "./utils.js";
 
-var arr = [0, 3, 5, 4, 2, 1];
-const tree = new Tree(arr);
-prettyPrint(tree.root);
+(function main() {
+  const tree = new Tree([]);
+  prettyPrint(tree.root);
 
-// tree.insert(6, tree.root);
-// prettyPrint(tree.root);
+  tree.insert(6);
+  tree.insert(5);
+  tree.insert(7);
+  tree.insert(9);
+  // prettyPrint(tree.root);
+
+  tree.delete(7);
+  prettyPrint(tree.root);
+  // tree.delete(5);
+  // prettyPrint(tree.root);
+  // tree.delete(9);
+  // prettyPrint(tree.root);
+})();

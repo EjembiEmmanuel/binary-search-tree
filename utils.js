@@ -1,5 +1,47 @@
 import Node from "./Node.js";
 
+const deleteValue = (value, node) => {
+  if (node === null) {
+    return node;
+  }
+
+  if (node.data > value) {
+    node.left = deleteValue(value, node.left);
+    return node;
+  } else if (node.data < value) {
+    node.right = deleteValue(value, node.right);
+    return node;
+  }
+
+  if (node.left === null) {
+    let temp = node.right;
+    node = null;
+    return temp;
+  } else if (node.right === null) {
+    let temp = node.left;
+    node = null;
+    return temp;
+  } else {
+    let succParent = node;
+
+    let succ = node.right;
+    while (succ.left !== null) {
+      succParent = succ;
+      succ = succ.left;
+    }
+
+    if (succParent !== node) {
+      succParent.left = succ.right;
+    } else {
+      succParent.right = succ.right;
+    }
+
+    node.value = succ.value;
+
+    return node;
+  }
+};
+
 const insertValue = (value, node) => {
   if (node.left === null && node.right === null) {
     if (node.data < value) {
@@ -41,4 +83,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-export { prettyPrint, insertValue };
+export { prettyPrint, insertValue, deleteValue };
