@@ -1,5 +1,19 @@
 import Node from "./Node.js";
 
+const findValue = (value, node) => {
+  if (node === null) {
+    return "Value doesn't exist";
+  }
+
+  if (node.data === value) {
+    return node;
+  } else if (node.data > value) {
+    return findValue(value, node.left);
+  } else if (node.data < value) {
+    return findValue(value, node.right);
+  }
+};
+
 const deleteValue = (value, node) => {
   if (node === null) {
     return node;
@@ -83,4 +97,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-export { prettyPrint, insertValue, deleteValue };
+export { prettyPrint, insertValue, deleteValue, findValue };

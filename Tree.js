@@ -1,5 +1,5 @@
 import Node from "./Node.js";
-import { insertValue, deleteValue } from "./utils.js";
+import { insertValue, deleteValue, findValue } from "./utils.js";
 
 export default class Tree {
   constructor(array) {
@@ -22,6 +22,10 @@ export default class Tree {
     node.right = this.buildTree(arr.slice(mid + 1));
 
     return node;
+  }
+
+  find(value) {
+    console.log(findValue(value, this.root));
   }
 
   insert(value) {
