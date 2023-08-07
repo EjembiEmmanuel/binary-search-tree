@@ -1,5 +1,5 @@
 import Node from "./Node.js";
-import { insertValue, deleteValue, findValue } from "./utils.js";
+import { insertValue, deleteValue, findValue, breadthFirst } from "./utils.js";
 
 export default class Tree {
   constructor(array) {
@@ -43,5 +43,9 @@ export default class Tree {
     }
 
     deleteValue(value, this.root);
+  }
+
+  levelOrder() {
+    console.log(breadthFirst(this.root));
   }
 }

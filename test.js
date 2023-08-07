@@ -15,4 +15,6 @@ import { prettyPrint } from "./utils.js";
   tree.delete(7);
   prettyPrint(tree.root);
   tree.find(8);
+
+  tree.levelOrder();
 })();

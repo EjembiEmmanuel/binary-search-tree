@@ -83,6 +83,32 @@ const insertValue = (value, node) => {
   }
 };
 
+const breadthFirst = (node) => {
+  if (node === null) {
+    return;
+  }
+
+  var result = [];
+  var queqe = [];
+  queqe.push(node);
+
+  while (queqe.length > 0) {
+    let currentNode = queqe[0];
+    result.push(currentNode.data);
+
+    if (currentNode.left !== null) {
+      queqe.push(currentNode.left);
+    }
+    if (currentNode.right !== null) {
+      queqe.push(currentNode.right);
+    }
+
+    queqe.shift();
+  }
+
+  return result;
+};
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     console.log("Tree is empty");
@@ -97,4 +123,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-export { prettyPrint, insertValue, deleteValue, findValue };
+export { prettyPrint, insertValue, deleteValue, findValue, breadthFirst };
