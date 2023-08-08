@@ -109,6 +109,24 @@ const breadthFirst = (node) => {
   return result;
 };
 
+const depthFirstInOrder = (node, arr = []) => {
+  if (node === null) {
+    return;
+  }
+
+  depthFirstInOrder(node.left, arr);
+  arr = merge(node, arr);
+  depthFirstInOrder(node.right, arr);
+
+  return arr;
+};
+
+const merge = (node, arr) => {
+  arr.push(node.data);
+
+  return arr;
+};
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     console.log("Tree is empty");
@@ -123,4 +141,11 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-export { prettyPrint, insertValue, deleteValue, findValue, breadthFirst };
+export {
+  prettyPrint,
+  insertValue,
+  deleteValue,
+  findValue,
+  breadthFirst,
+  depthFirstInOrder,
+};
