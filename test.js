@@ -18,5 +18,6 @@ import { prettyPrint } from "./utils.js";
 
   tree.levelOrder();
   tree.inOrder();
+  tree.preOrder();
   tree.postOrder();
 })();
