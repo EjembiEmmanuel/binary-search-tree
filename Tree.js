@@ -7,6 +7,7 @@ import {
   depthFirstInOrder,
   depthFirstPreOrder,
   depthFirstPostOrder,
+  maxDepth,
 } from "./utils.js";
 
 export default class Tree {
@@ -67,5 +68,9 @@ export default class Tree {
 
   postOrder() {
     console.log(depthFirstPostOrder(this.root));
+  }
+
+  depth() {
+    console.log(maxDepth(this.root));
   }
 }

@@ -10,7 +10,6 @@ import { prettyPrint } from "./utils.js";
   tree.insert(7);
   tree.insert(8);
   tree.insert(9);
-  // prettyPrint(tree.root);
 
   tree.delete(7);
   prettyPrint(tree.root);
@@ -20,4 +19,5 @@ import { prettyPrint } from "./utils.js";
   tree.inOrder();
   tree.preOrder();
   tree.postOrder();
+  tree.depth();
 })();
