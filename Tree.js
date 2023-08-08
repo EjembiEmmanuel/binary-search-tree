@@ -5,6 +5,7 @@ import {
   findValue,
   breadthFirst,
   depthFirstInOrder,
+  depthFirstPostOrder,
 } from "./utils.js";
 
 export default class Tree {
@@ -57,5 +58,9 @@ export default class Tree {
 
   inOrder() {
     console.log(depthFirstInOrder(this.root));
+  }
+
+  postOrder() {
+    console.log(depthFirstPostOrder(this.root));
   }
 }

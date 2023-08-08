@@ -121,6 +121,18 @@ const depthFirstInOrder = (node, arr = []) => {
   return arr;
 };
 
+const depthFirstPostOrder = (node, arr = []) => {
+  if (node === null) {
+    return;
+  }
+
+  depthFirstPostOrder(node.left, arr);
+  depthFirstPostOrder(node.right, arr);
+  arr = merge(node, arr);
+
+  return arr;
+};
+
 const merge = (node, arr) => {
   arr.push(node.data);
 
@@ -148,4 +160,5 @@ export {
   findValue,
   breadthFirst,
   depthFirstInOrder,
+  depthFirstPostOrder,
 };
