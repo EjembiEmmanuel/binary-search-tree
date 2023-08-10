@@ -34,7 +34,7 @@ export default class Tree {
   }
 
   find(value) {
-    console.log(findValue(value, this.root));
+    return findValue(value, this.root);
   }
 
   insert(value) {
@@ -55,22 +55,28 @@ export default class Tree {
   }
 
   levelOrder() {
-    console.log(breadthFirst(this.root));
+    return breadthFirst(this.root);
   }
 
   inOrder() {
-    console.log(depthFirstInOrder(this.root));
+    return depthFirstInOrder(this.root);
   }
 
   preOrder() {
-    console.log(depthFirstPreOrder(this.root));
+    return depthFirstPreOrder(this.root);
   }
 
   postOrder() {
-    console.log(depthFirstPostOrder(this.root));
+    return depthFirstPostOrder(this.root);
   }
 
   depth() {
-    console.log(maxDepth(this.root));
+    return maxDepth(this.root);
+  }
+
+  height(value) {
+    var node = this.find(value);
+
+    return maxDepth(node);
   }
 }

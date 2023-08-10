@@ -166,7 +166,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 const maxDepth = (node) => {
-  if (node == null) {
+  if (node === null) {
     return 0;
   } else {
     let leftDepth = maxDepth(node.left);
