@@ -180,6 +180,24 @@ const maxDepth = (node) => {
   }
 };
 
+const checkHeightBalance = (node) => {
+  if (node === null) {
+    return 0;
+  }
+
+  var leftSubtreeHeight = checkHeightBalance(node.left);
+  var rightSubtreeHeight = checkHeightBalance(node.right);
+  if (leftSubtreeHeight === -1 || rightSubtreeHeight === -1) {
+    return -1;
+  }
+
+  if (Math.abs(leftSubtreeHeight - rightSubtreeHeight) > 1) {
+    return -1;
+  }
+
+  return Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
+};
+
 export {
   prettyPrint,
   insertValue,
@@ -190,4 +208,5 @@ export {
   depthFirstPreOrder,
   depthFirstPostOrder,
   maxDepth,
+  checkHeightBalance,
 };

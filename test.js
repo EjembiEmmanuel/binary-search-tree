@@ -11,6 +11,7 @@ import { prettyPrint } from "./utils.js";
   tree.insert(9);
   tree.insert(4);
   tree.insert(3);
+  tree.insert(2);
 
   tree.delete(7);
   prettyPrint(tree.root);
@@ -22,4 +23,6 @@ import { prettyPrint } from "./utils.js";
   console.log("Post order:", tree.postOrder());
   console.log("Depth:", tree.depth());
   console.log("Height:", tree.height(5));
+
+  console.log(tree.isBalanced());
 })();

@@ -8,6 +8,7 @@ import {
   depthFirstPreOrder,
   depthFirstPostOrder,
   maxDepth,
+  checkHeightBalance,
 } from "./utils.js";
 
 export default class Tree {
@@ -78,5 +79,13 @@ export default class Tree {
     var node = this.find(value);
 
     return maxDepth(node);
+  }
+
+  isBalanced() {
+    if (checkHeightBalance(this.root) === -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
