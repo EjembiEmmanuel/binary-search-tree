@@ -88,4 +88,10 @@ export default class Tree {
       return true;
     }
   }
+
+  rebalance() {
+    var arr = depthFirstInOrder(this.root);
+
+    this.root = this.buildTree(arr);
+  }
 }

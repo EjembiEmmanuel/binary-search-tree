@@ -1,28 +1,36 @@
 import Tree from "./Tree.js";
-import { prettyPrint } from "./utils.js";
+import { prettyPrint, generateArray } from "./utils.js";
 
 (function main() {
-  const tree = new Tree([]);
+  const tree = new Tree([...generateArray().values()]);
 
-  tree.insert(6);
-  tree.insert(5);
-  tree.insert(7);
-  tree.insert(8);
-  tree.insert(9);
-  tree.insert(4);
-  tree.insert(3);
-  tree.insert(2);
-
-  tree.delete(7);
   prettyPrint(tree.root);
 
-  console.log("Found Node:", tree.find(8));
+  console.log("Balanced tree:", tree.isBalanced());
+
   console.log("Level order:", tree.levelOrder());
   console.log("In order:", tree.inOrder());
   console.log("Pre order:", tree.preOrder());
   console.log("Post order:", tree.postOrder());
-  console.log("Depth:", tree.depth());
-  console.log("Height:", tree.height(5));
 
-  console.log(tree.isBalanced());
+  tree.insert(102);
+  tree.insert(105);
+  tree.insert(112);
+  tree.insert(120);
+  tree.insert(138);
+
+  prettyPrint(tree.root);
+
+  console.log("Balanced tree:", tree.isBalanced());
+
+  tree.rebalance();
+
+  prettyPrint(tree.root);
+
+  console.log("Balanced tree:", tree.isBalanced());
+
+  console.log("Level order:", tree.levelOrder());
+  console.log("In order:", tree.inOrder());
+  console.log("Pre order:", tree.preOrder());
+  console.log("Post order:", tree.postOrder());
 })();

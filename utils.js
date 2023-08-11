@@ -198,6 +198,16 @@ const checkHeightBalance = (node) => {
   return Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
 };
 
+const generateArray = () => {
+  var randoms = new Set();
+
+  while (randoms.size < 10) {
+    randoms.add(1 + Math.floor(Math.random() * 100));
+  }
+
+  return randoms;
+};
+
 export {
   prettyPrint,
   insertValue,
@@ -209,4 +219,5 @@ export {
   depthFirstPostOrder,
   maxDepth,
   checkHeightBalance,
+  generateArray,
 };
