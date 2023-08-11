@@ -2,7 +2,7 @@ import Node from "./Node.js";
 
 const findValue = (value, node) => {
   if (node === null) {
-    return "Value doesn't exist";
+    return null;
   }
 
   if (node.data === value) {

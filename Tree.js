@@ -78,7 +78,11 @@ export default class Tree {
   height(value) {
     var node = this.find(value);
 
-    return maxDepth(node);
+    if (node) {
+      return maxDepth(node);
+    }
+
+    return "Node doesn't exist";
   }
 
   isBalanced() {
